@@ -1,0 +1,44 @@
+package utils;
+
+
+import org.springframework.beans.factory.annotation.Value;
+import org.springframework.context.annotation.Bean;
+import org.springframework.jdbc.datasource.DriverManagerDataSource;
+
+import javax.sql.DataSource;
+import java.sql.Connection;
+import java.sql.DriverManager;
+
+public class DBConnectioon {
+    @Value("${db.host}")
+    private String DB_HOST;
+
+    @Value("${db.port}")
+    private String DB_PORT;
+
+    @Value("${db.name}")
+    private String DB_NAME;
+
+    @Value("${db.user}")
+    private String DB_USER;
+
+    @Value("${db.pass}")
+    private String DB_PASS;
+
+    @Bean
+    public DataSource getConnection(){
+        DriverManagerDataSource src = new DriverManagerDataSource();
+        src.setUrl(String.format("jdbc:mysql://%s:%s/%s", DB_HOST, DB_PORT, DB_NAME));
+
+        //1.- pagina web: com.mysql
+        //2.- gta SA: cj
+        //3.- protocolo: jdbc
+        //4.- Driver
+
+        src.setDriverClassName("com.mysql.cj.jdbc.Driver");
+        src.setUsername(DB_USER);
+        src.setPassword(DB_PASS);
+
+        return src;
+    }
+}
