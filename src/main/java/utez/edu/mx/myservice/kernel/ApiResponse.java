@@ -1,4 +1,4 @@
-package kernel;
+package utez.edu.mx.myservice.kernel;
 
 import lombok.Data;
 import org.springframework.http.HttpStatus;

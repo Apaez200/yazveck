@@ -1,6 +1,6 @@
-package modules.test;
+package utez.edu.mx.myservice.test;
 
-import kernel.ApiResponse;
+import utez.edu.mx.myservice.kernel.ApiResponse;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.CrossOrigin;
